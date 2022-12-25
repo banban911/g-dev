@@ -1,6 +1,6 @@
 module.exports = {
     i18n: {
-        locales: ['en-US', 'vi'],
+        locales: ['vi', 'en-US'],
         defaultLocale: 'vi',
         domains: [
             {
@@ -8,7 +8,7 @@ module.exports = {
                 defaultLocale: 'vi',
             },
             {
-                domain: 'http://localhost:3000.en-US',
+                domain: 'http://localhost:3000/en-US',
                 defaultLocale: 'en-US',
             },
         ],

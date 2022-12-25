@@ -15,6 +15,9 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/layout.js", "components/layout.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",
+    "components/layout/layout.js",
+    "components/layout/layout.js"
+  ],
   "exclude": ["node_modules"]
 }

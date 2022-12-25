@@ -1,0 +1,21 @@
+.layout {
+    min-height: 100vh;
+}
+
+.header {
+    background-color: white !important;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.footer {
+    width: 100%;
+    background-color: bisque;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.content {
+    margin-top: 64px;
+}

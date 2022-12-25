@@ -1,9 +1,11 @@
-import {Button, Form, Input, Modal, Select} from "antd";
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {Form, Input, Modal, Select} from "antd";
+import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {createPost} from "../../../src/store/posts";
 import TextArea from "antd/lib/input/TextArea";
 import {ModalFormPropTypes, PostInputTypes} from "../../../src/types/post";
+import {CloseCircleOutlined, CloseSquareFilled} from "@ant-design/icons";
+import useTrans from "../../../pages/hooks/useTrans";
 
 const options = [
     {
@@ -35,7 +37,7 @@ const AddPostModal = (props: ModalFormPropTypes) => {
     console.log('isOpen pass down', isModalOpen)
     const [isOpen, setIsOpen] = useState(false)
     const [loading, setLoading] = useState(false)
-
+    const trans = useTrans()
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -61,7 +63,7 @@ const AddPostModal = (props: ModalFormPropTypes) => {
 
     return (
         <Modal
-            title={<div style={{textAlign: 'center'}}>Add Post</div>}
+            title={<div style={{textAlign: 'center', marginBottom: '1rem'}}>{trans.post.addTitle}</div>}
             width={1000}
             open={isOpen}
             onOk={form.submit}
@@ -73,6 +75,7 @@ const AddPostModal = (props: ModalFormPropTypes) => {
             confirmLoading={loading}
             centered
             afterClose={handleAfterclose}
+            closeIcon={<CloseCircleOutlined style={{fontSize: '1.25rem'}}/>}
         >
             <Form
                 form={form}
@@ -89,7 +92,7 @@ const AddPostModal = (props: ModalFormPropTypes) => {
                 preserve={false}
             >
                 <Form.Item
-                    label="Title"
+                    label={trans.post.title}
                     name="title"
                     rules={[{required: true, message: 'Please enter your title!'}]}
                 >
@@ -97,7 +100,7 @@ const AddPostModal = (props: ModalFormPropTypes) => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Content"
+                    label={trans.post.content}
                     name="body"
                     rules={[{required: true, message: 'Please enter your content!'}]}
                 >
@@ -105,7 +108,7 @@ const AddPostModal = (props: ModalFormPropTypes) => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Tag"
+                    label={trans.post.tags}
                     name="tags"
                     rules={[{required: false, message: 'Please select or create your tag!'}]}
                 >
