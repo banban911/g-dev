@@ -5,7 +5,9 @@ export default function Layout({children}) {
     return (
         <>
             <AntdLayout>
-                <Sider collapsible>Sider</Sider>
+                <Sider collapsible>
+                    
+                </Sider>
                 <Content>{children}</Content>
             </AntdLayout>
         </>

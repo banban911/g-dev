@@ -11,12 +11,13 @@
 
 .footer {
     width: 100%;
-    background-color: bisque !important;
+    background-color: #303030 !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
 }
 
 .content {
+    min-height: calc(100vh - 64px);
     margin-top: 4rem;
     margin-bottom: 3rem;
 }

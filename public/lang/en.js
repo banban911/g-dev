@@ -1,4 +1,8 @@
 export default {
+    login: {
+        fail: 'Failed to login',
+        loginFailMsg: 'Password or username is not correct!',
+    },
     nav: {
       home: 'Home',
       posts: 'Posts',

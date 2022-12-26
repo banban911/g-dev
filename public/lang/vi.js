@@ -1,4 +1,8 @@
 export default {
+    login: {
+        fail: 'Đăng nhập thất bại',
+        loginFailMsg: 'Mật khẩu hoặc tên đăng nhập sai!',
+    },
     nav: {
         home: 'Trang chủ',
         posts: 'Bài viết',

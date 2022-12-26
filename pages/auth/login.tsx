@@ -3,9 +3,10 @@ import {Fragment, ReactElement, useEffect, useState} from 'react';
 import axios from 'axios';
 import {Button, Card, Checkbox, Form, Input, notification, Space, Typography} from 'antd';
 import {useRouter} from "next/router";
-import {selectAuthState, setAuthState} from '../../src/store/auth';
+import auth, {selectAuthState, setAuthState} from '../../src/store/auth';
 import SpinCircle from "../../components/spin/SpinCircle";
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
+import useTrans from "../hooks/useTrans";
 
 export default function Login() {
     type NotificationType = 'success' | 'info' | 'warning' | 'error';
@@ -17,12 +18,12 @@ export default function Login() {
 
     const [api, contextHolder] = notification.useNotification();
     const [loading, setLoading] = useState(false)
+    const trans = useTrans()
 
     const loginErrorNotif = (type?: NotificationType) => {
         api['error']({
-            message: 'Login failed',
-            description:
-                'Password or username is not correct, please check again!',
+            message: trans.login.fail,
+            description: trans.login.loginFailMsg
         });
     };
 
@@ -55,17 +56,19 @@ export default function Login() {
     useEffect(() => {
         if (authState) {
             router.push('/posts/dashboard')
+        } else {
+            loginErrorNotif()
         }
-    }, [router, authState])
+
+    }, [authState])
 
     const onFinishFailed = async (errorInfo: any) => {
-        console.log('errorInfo', errorInfo)
-        loginErrorNotif()
     }
     return (
         loading ? <SpinCircle/> :
             <div
                 style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: `calc(100vh - 64px)`}}>
+                {contextHolder}
                 <Card title={<div style={{textAlign: 'center'}}>Welcome back.</div>} bordered={false} loading={loading}
                       style={{width: '33vw', minWidth: '400px', maxWidth: '500px'}}>
                     <Form

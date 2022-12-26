@@ -35,21 +35,21 @@ export default function MainNav() {
 
     const items: MenuProps['items'] = [
         {
-            label: (<Typography.Link href='/'>
+            label: (<Typography.Link href='/' strong>
                 {trans.nav.home}
             </Typography.Link>),
             key: 'home',
             icon: <HomeOutlined/>
         },
         {
-            label: (<Typography.Link href={`/${router.locale}/posts/dashboard`}>
+            label: (<Typography.Link strong href={`/${router.locale}/posts/dashboard`}>
                 {trans.nav.posts}
             </Typography.Link>),
             key: 'posts',
             icon: <AppstoreOutlined/>,
         },
         {
-            label: (<Typography.Text onClick={handleLogout}>
+            label: (<Typography.Text strong onClick={handleLogout}>
                 {trans.nav.logout}
             </Typography.Text>),
             key: 'logout',

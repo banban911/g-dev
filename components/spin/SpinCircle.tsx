@@ -8,10 +8,10 @@ const SpinCircle: FC = () => {
     const styles = {
         minWidth: '100vw',
         minHeight: '100vh',
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(0, 0, 0, .1)',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     }
     return (
         <div style={styles}>

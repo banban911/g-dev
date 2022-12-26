@@ -8,31 +8,7 @@ import {PostType} from "../../../pages/posts/dashboard";
 import {NotificationType} from "../../../src/types/notification";
 import {CloseCircleOutlined} from "@ant-design/icons";
 import useTrans from "../../../pages/hooks/useTrans";
-
-const options = [
-    {
-        label: 'history',
-        value: 'history'
-    }, {
-        label: 'american',
-        value: 'american'
-    }, {
-        label: 'crime',
-        value: 'crime'
-    }, {
-        label: 'english',
-        value: 'english'
-    }, {
-        label: 'fiction',
-        value: 'fiction'
-    }, {
-        label: 'french',
-        value: 'french'
-    }, {
-        label: 'mystery',
-        value: 'mystery'
-    },
-]
+import {options} from "../../../src/constants/post-tags";
 
 const EditPostModal = (props: ModalFormPropTypes & { data: PostType }) => {
     const {isModalOpen, setOpenModal, data} = props

@@ -1,5 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import getConfig from 'next/config'
+import {throws} from "assert";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const { serverRuntimeConfig } = getConfig()
@@ -11,7 +12,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             res.status(200).json({token: serverRuntimeConfig.token})
         }
 		else {
-            res.status(400).json({error: 'incorrect username or password'})
+            res.status(401).json({error: 'incorrect username or password'})
         }
     }
 }

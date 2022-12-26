@@ -1,12 +1,15 @@
 import styles from './footer.module.css'
-import {Typography} from "antd";
+import {Tag, Typography} from "antd";
 
 export default function MainFooter() {
     return (
-        <div>
-            <Typography.Text>
+        <span>
+            <Tag className={styles.author}>
                 Created by banban | Jan, 2023
-            </Typography.Text>
-        </div>
+            </Tag>
+            <Tag className={styles.stack}>
+                Tech stacks: Nextjs, Redux Toolkit, Antd
+            </Tag>
+        </span>
     )
 }
