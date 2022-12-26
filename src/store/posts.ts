@@ -12,12 +12,10 @@ export interface PostsState {
 }
 
 //api to fetch initial data
-export const getPosts = createAsyncThunk(
+export const getPosts = (params: any) => createAsyncThunk(
     'post/getPosts',
     async (thunkAPI) => {
-        // const posts = await PostApi.getPosts()
-        const result = await axios.get(`https://dummyjson.com/posts?limit=10`)
-        console.log('result.data', result.data.posts)
+        const result = await axios.get(`https://dummyjson.com/posts?limit=${params.limit}`)
         if (result) {
             return result.data.posts
         }
