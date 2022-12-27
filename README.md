@@ -1,4 +1,11 @@
 ## Getting Started
+Install package
+
+```bash
+npm i
+# or
+yarn
+```
 
 First, run the development server:
 

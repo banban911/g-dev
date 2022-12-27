@@ -55,8 +55,8 @@ export default function Login() {
       const res = await login(values);
       if (res) {
         localStorage.setItem("token", JSON.stringify(res.data.token));
+        dispatch(setAuthState(true));
       }
-      dispatch(setAuthState(true));
       setLoading(false);
     }, 300);
   };
