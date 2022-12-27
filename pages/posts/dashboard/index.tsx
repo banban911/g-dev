@@ -17,7 +17,7 @@ import RemovePostModal from "../../../components/modal/post/RemovePost";
 import EditPostModal from "../../../components/modal/post/EditPost";
 import {PostInputTypes} from "../../../src/types/post";
 import useTrans from "../../hooks/useTrans";
-
+import {useRouter} from "next/router";
 export interface PostType {
     id: number | string,
     title: string
@@ -34,6 +34,7 @@ const Posts = () => {
     const editRef = useRef(null);
     const addRef = useRef(null);
     const trans = useTrans();
+    const router = useRouter()
     const steps: TourProps['steps'] = [
         {
             title: trans.post.logginSuccess,
