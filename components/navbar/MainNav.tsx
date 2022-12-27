@@ -14,12 +14,14 @@ export default function MainNav() {
     const router = useRouter()
     const trans = useTrans()
     const handleLogout = () => {
-        setLoading(true)
-        localStorage.removeItem('token')
-        dispatch(setAuthState(false))
-        router.push('/auth/login')
-        setLoading(false)
-    }
+      setLoading(true);
+      setTimeout(async () => {
+        await router.push("/auth/login");
+        localStorage.removeItem("token");
+        dispatch(setAuthState(false));
+        setLoading(false);
+      }, 300);
+    };
 
     const selectedKey = useMemo(() => {
         const curPath = router.pathname

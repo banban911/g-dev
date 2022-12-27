@@ -85,6 +85,13 @@ const Posts = () => {
 
     ];
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/auth/login");
+    }
+  }, []);
+
     //fetch initial data
     useEffect(() => {
         dispatch(getPosts())
